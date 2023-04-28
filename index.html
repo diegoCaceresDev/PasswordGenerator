@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1 id="title">Password Generator</h1>
+    </div>
+
+    <p id="securityQuestion">What level of security do you prefer?</p>
+
+    <select name="levelsecurity" id="levelsecurity">
+      <option value="low">Low Security</option>
+      <option value="medium">Medium Security</option>
+      <option value="high">High Security</option>
+    </select>
+
+    <button id="generate">Generate</button>
+  
+    <div >
+      <p id="password"></p>
+      <p id="messageClipboard"></p>
+    </div>
+
+    <script src="script.js" defer></script>
+</div>
+</body>
+</html>
