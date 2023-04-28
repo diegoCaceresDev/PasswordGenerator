@@ -3,7 +3,7 @@ async function generate() {
   let levelSecurity = document.getElementById("levelsecurity").value;
 
   let api = `https://api.stringgy.com/`
-  if (levelSecurity === 'low') api += '?length=8&chars=abc1dfg2'
+  if (levelSecurity === 'low') api += '?length=8&chars=abc1dfg2&amountT=5'
   if (levelSecurity === 'medium') api += '?length=10'
   if (levelSecurity === 'high') api += '?length=12'
 
@@ -26,6 +26,12 @@ async function generate() {
 document.getElementById('generate').addEventListener('click', (event) => {
   generate()
 })
+
+
+
+
+
+
 
 
 
