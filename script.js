@@ -39,17 +39,17 @@ let btnCheckPassword = document.getElementById("btn_password").addEventListener(
 		if (compromised) {
 			divEstado.style.background = 'RGB(255,0,0)';
 			divEstado.style.color = 'RGB(255, 255, 255)';
-			divEstado.innerText= 'Contraseña comprometida. Esta contraseña está registrada en las base de datos de contraseñas hackeadas. No es segura.'
+			divEstado.innerText= 'Compromised password. This password is registered in the hacked password database. It is not secure.'
 		} else {
 			divEstado.style.background = 'green';
 			divEstado.style.color = 'RGB(255, 255, 255)'
-			divEstado.innerText= 'La contraseña no ha sido comprometida, su contraseña es segura.';
+			divEstado.innerText= 'We verify that your password has not been compromised, the password is secure.';
 		}
 		if(listaRecomendaciones.length > 0){
 			divCriterios.innerHTML = "<ul>" + listaRecomendaciones + "</ul>";
 			divCriterios.style.background = '#f0ad4e';
   		}else{
-			divCriterios.innerText= 'Felicidades! Tu contraseña es altamente segura. Para asegurarnos de esto, hemos verificado en base de datos de contraseñas hackeadas y tu contraseña no parece estar comprometida. Además, hemos verificado su fortaleza y es altamente segura porque incluye combinaciones de números, letras en mayúsculas y minúsculas, caracteres especiales y su longitud es de ' + password.length + ' caracteres.'
+			divCriterios.innerText= 'Congratulations! Your password is highly secure. To make sure of this, we have checked it against a database of hacked passwords and your password does not appear to have been compromised. In addition, we have verified its strength and it is highly secure because it includes combinations of numbers, uppercase and lowercase letters, special characters, and its length is' + password.length + ' characters long.'
 			divEstado.style.background = 'green';
 			divEstado.style.color = 'RGB(255, 255, 255)'
       
@@ -100,22 +100,22 @@ function comprobarFortaleza(pword){
 
 	// Longitud de la contraseña
 	if (password.length <= 8) {
-		listaCriterios += "<li>La contraseña debería 9 caractéres como mínimo.</li>";
+		listaCriterios += "<li>The password should be at least 9 characters long.</li>";
 	}
 	
 	// Uso de mayúsculas y minúsculas
 	if (!(/[a-z]/.test(pword) && /[A-Z]/.test(pword))) {
-		listaCriterios += "<li>La contraseña no tiene combinaciones entre mayusculas y minusculas</li>";
+		listaCriterios += "<li>The password has no combination of upper and lower case letters.</li>";
 	}
 
 	// Uso de números
 	if (!/\d/.test(pword)) {
-		listaCriterios += "<li>La contraseña no tiene números.</li>";
+		listaCriterios += "<li>Password has no numbers.</li>";
 	}
 
 	// Uso de caracteres especiales
 	if (!/[^a-zA-Z0-9]/.test(pword)) {
-		listaCriterios += "<li>La contraseña no tiene caractéres especiales.</li>";
+		listaCriterios += "<li>The password has no special characters.</li>";
 	}
 	return listaCriterios;
 }
