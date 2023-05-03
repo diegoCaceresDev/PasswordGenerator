@@ -5,7 +5,7 @@ async function generate() {
   let api = `https://api.stringgy.com/`
   if (levelSecurity === 'low') api += '?length=8&chars=abc1dfg2'
   if (levelSecurity === 'medium') api += '?length=10'
-  if (levelSecurity === 'high') api += '?length=12'
+  if (levelSecurity === 'high') api += '?length=12&chars=ABCdef12345@'
 
   let response = await fetch(api)
   response = await response.json()
