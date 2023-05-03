@@ -21,14 +21,28 @@
       <option value="high">High Security</option>
     </select>
 
+    <p id="password"></p>
     <button id="generate">Generate</button>
   
     <div >
-      <p id="password"></p>
       <p id="messageClipboard"></p>
     </div>
+  </div>
 
-    <script src="script.js" defer></script>
+    <div class="container">
+      <h1>Try the security of your password.</h1>
+      <input id="input_password" type="password" placeholder="Enter your password">
+      <button id="btn_password">Try</button>
+
+      <div id="estado"> </div>
+
+      <div id="recomendaciones"><p>Recommendations to improve the level of your password:</p>
+
+        <div id="criterios"></div>
+
+      </div>
+
 </div>
+<script src="./script.js" defer></script>
 </body>
 </html>

@@ -1,54 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Explora&family=Roboto:ital@1&display=swap');
+
+*{
+  padding: 0%;
+  margin: 0%;
+}
+
+h1 {
+  font-family: Anton;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #dfdfdf;
+  font-family: Roboto;
+  background-color: #dfdfdf;
+}
+
+#generate {
+    padding: 10px;
+    background-color: #b09ad0;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
   }
   
-  #generate {
-      padding: 10px;
-      background-color: #b09ad0;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
-    }
-    
-    #generate:hover {
-      background-color: #b8adcd;
-    }
-    
-    #password {
-      margin-top: 20px;
-      font-size: 1.2rem;
-    }
-    
-    #messageClipboard {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color:red;
-    }
-    
-    #levelsecurity {
-      margin-top: 20px;
-      padding: 5px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-      background-color: #f2f2f2;
-    }
-    
-    .container {
-      background-color: #cccccc;
-      width: 45%;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid #999999;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    }
+  #generate:hover {
+    background-color: #b8adcd;
+  }
+  
+  #password {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  #messageClipboard {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color:red;
+  }
+  
+  #levelsecurity {
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+  }
+  
+  
+  .container {
+    max-width: 500px;
+    height: 5%;
+    margin: 2.5% auto ;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
 
-      
-    button:active {
-        transform: scale(0.95);
-        }
-        
+  button:active {
+    transform: scale(0.95);
+    }
+  
+  #btn_password {
+    padding: 10px;
+    background-color: #b09ad0;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  #recomendaciones,p {
+    margin: 4%;
+    text-align: center;
+  }
