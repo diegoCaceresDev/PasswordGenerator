@@ -47,7 +47,6 @@ let btnCheckPassword = document.getElementById("btn_password").addEventListener(
 		}
 		if(listaRecomendaciones.length > 0){
 			divCriterios.innerHTML = "<ul>" + listaRecomendaciones + "</ul>";
-			divCriterios.style.background = '#f0ad4e';
   		}else{
 			divCriterios.innerText= 'Congratulations! Your password is highly secure. To make sure of this, we have checked it against a database of hacked passwords and your password does not appear to have been compromised. In addition, we have verified its strength and it is highly secure because it includes combinations of numbers, uppercase and lowercase letters, special characters, and its length is' + password.length + ' characters long.'
 			divEstado.style.background = 'green';
@@ -95,7 +94,7 @@ async function isPasswordCompromised(password) {
 	return compromisedHash !== null;
 }
 
-function comprobarFortaleza(pword){
+function comprobarFortaleza(password){
 	let listaCriterios = "";
 
 	// Longitud de la contraseña
@@ -104,17 +103,17 @@ function comprobarFortaleza(pword){
 	}
 	
 	// Uso de mayúsculas y minúsculas
-	if (!(/[a-z]/.test(pword) && /[A-Z]/.test(pword))) {
+	if (!(/[a-z]/.test(password) && /[A-Z]/.test(password))) {
 		listaCriterios += "<li>The password has no combination of upper and lower case letters.</li>";
 	}
 
 	// Uso de números
-	if (!/\d/.test(pword)) {
+	if (!/\d/.test(password)) {
 		listaCriterios += "<li>Password has no numbers.</li>";
 	}
 
 	// Uso de caracteres especiales
-	if (!/[^a-zA-Z0-9]/.test(pword)) {
+	if (!/[^a-zA-Z0-9]/.test(password)) {
 		listaCriterios += "<li>The password has no special characters.</li>";
 	}
 	return listaCriterios;
