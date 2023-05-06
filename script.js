@@ -1,39 +1,26 @@
-//funcion donde generamos la clave con la API
-async function generate() {
-  let levelSecurity = document.getElementById("levelsecurity").value;
+const togglePassword = document.getElementById("togglePassword");
+const btnGenerate = document.getElementById('generate');
+const btnCheckPassword = document.getElementById("btn_password");
+const inputPassword = document.getElementById("input_password");
 
-  let api = `https://api.stringgy.com/`
-  if (levelSecurity === 'low') api += '?length=8&chars=abc1dfg2'
-  if (levelSecurity === 'medium') api += '?length=10'
-  if (levelSecurity === 'high') api += '?length=12&chars=ABCdef12345@'
-
-  let response = await fetch(api)
-  response = await response.json()
-
-  document.getElementById("password").innerText = 'Your password is: ' + response[0]
-  //metodo para copiar la clave al clipboard
-  try {
-  
-    await navigator.clipboard.writeText(response[0]);
-    document.getElementById("messageClipboard").innerText = 'Copied in clipboard!'
-  } catch (error) {
-    console.log(error);
-    document.getElementById("messageClipboard").innerText = 'cannot copy in clipboard'
-
-  }
-
-}
-
-document.getElementById('generate').addEventListener('click', (event) => {
-  generate()
+inputPassword.focus();
+togglePassword.addEventListener('click', showPassword);
+btnGenerate.addEventListener("click", generatePassword);
+btnCheckPassword.addEventListener('click', checkPassword);
+inputPassword.addEventListener("keypress", (event)=>{
+	if(event.key == "Enter" ) checkPassword();
 })
 
-
-let btnCheckPassword = document.getElementById("btn_password").addEventListener('click', ()=>{
-	const password = document.getElementById("input_password").value;
+function checkPassword(){
+	const password = inputPassword.value;
+	if(password == "") {
+		alert('The password is empty.');
+		inputPassword.focus();
+		return;
+	};
 	const divEstado = document.getElementById("estado");
 	const divCriterios = document.getElementById("criterios");
-  const listaRecomendaciones = comprobarFortaleza(password);
+	const listaRecomendaciones = comprobarFortaleza(password);
 
 	isPasswordCompromised(password).then(compromised => {
 		if (compromised) {
@@ -47,16 +34,40 @@ let btnCheckPassword = document.getElementById("btn_password").addEventListener(
 		}
 		if(listaRecomendaciones.length > 0){
 			divCriterios.innerHTML = "<ul>" + listaRecomendaciones + "</ul>";
-  		}else{
+		}else{
 			divCriterios.innerText= 'Congratulations! Your password is highly secure. To make sure of this, we have checked it against a database of hacked passwords and your password does not appear to have been compromised. In addition, we have verified its strength and it is highly secure because it includes combinations of numbers, uppercase and lowercase letters, special characters, and its length is' + password.length + ' characters long.'
 			divEstado.style.background = 'green';
 			divEstado.style.color = 'RGB(255, 255, 255)'
-      
 		}
-  	}).catch(error => console.error(error));;
-	
-});
+	}).catch(error => console.error(error));
+}
 
+//funcion donde generamos la clave con la API
+async function generatePassword() {
+	console.log('mostrar');
+	let levelSecurity = document.getElementById("levelsecurity").value;
+  
+	let api = `https://api.stringgy.com/`
+	if (levelSecurity === 'low') api += '?length=8&chars=abc1dfg2'
+	if (levelSecurity === 'medium') api += '?length=10'
+	if (levelSecurity === 'high') api += '?length=12&chars=ABCdef12345@'
+  
+	let response = await fetch(api)
+	response = await response.json()
+  
+	document.getElementById("password").innerText = 'Your password is: ' + response[0]
+	//metodo para copiar la clave al clipboard
+	try {
+		console.log('mostarand')
+		await navigator.clipboard.writeText(response[0]);
+		document.getElementById("messageClipboard").innerText = 'Copied in clipboard!'
+	} catch (error) {
+		console.log(error);
+		document.getElementById("messageClipboard").innerText = 'Cannot copy in clipboard'
+	}
+  
+  }
+  
 
 // Función para obtener el hash SHA-1 de una cadena de texto
 async function sha1(message) {
@@ -99,24 +110,31 @@ function comprobarFortaleza(password){
 
 	// Longitud de la contraseña
 	if (password.length <= 8) {
-		listaCriterios += "<li>The password should be at least 9 characters long.</li>";
+		listaCriterios += "*The password should be at least 9 characters long.</li>";
 	}
 	
 	// Uso de mayúsculas y minúsculas
 	if (!(/[a-z]/.test(password) && /[A-Z]/.test(password))) {
-		listaCriterios += "<li>The password has no combination of upper and lower case letters.</li>";
+		listaCriterios += "<li>*The password has no combination of upper and lower case letters.</li>";
 	}
 
 	// Uso de números
 	if (!/\d/.test(password)) {
-		listaCriterios += "<li>Password has no numbers.</li>";
+		listaCriterios += "<li>*Password has no numbers.</li>";
 	}
 
 	// Uso de caracteres especiales
 	if (!/[^a-zA-Z0-9]/.test(password)) {
-		listaCriterios += "<li>The password has no special characters.</li>";
+		listaCriterios += "<li>*The password has no special characters.</li>";
 	}
 	return listaCriterios;
+}
+
+function showPassword(){
+	const type = inputPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+	togglePassword.style.color = inputPassword.getAttribute('type') === 'password' ? '#0054fd' : '#000000';
+	inputPassword.setAttribute('type', type);
+	inputPassword.focus();
 }
 
 

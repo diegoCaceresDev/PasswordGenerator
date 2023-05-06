@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Generator</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/66c939889b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container">
-    <div>
-      <h1 id="title">Password Generator</h1>
+
+    
+    <div class="container">
+        <div>
+            <h1 id="title">Password Generator</h1>
+        </div>
+
+        <p id="securityQuestion">What level of security do you prefer?</p>
+
+        <select name="levelsecurity" id="levelsecurity">
+        <option value="low">Low Security</option>
+        <option value="medium">Medium Security</option>
+        <option value="high">High Security</option>
+        </select>
+
+        <p id="password"></p>
+        <button id="generate">Generate</button>
+    
+        <div >
+            <p id="messageClipboard"></p>
+        </div>
     </div>
-
-    <p id="securityQuestion">What level of security do you prefer?</p>
-
-    <select name="levelsecurity" id="levelsecurity">
-      <option value="low">Low Security</option>
-      <option value="medium">Medium Security</option>
-      <option value="high">High Security</option>
-    </select>
-
-    <p id="password"></p>
-    <button id="generate">Generate</button>
-  
-    <div >
-      <p id="messageClipboard"></p>
-    </div>
-  </div>
 
     <div class="container">
-      <h1>Try the security of your password.</h1>
-      <input id="input_password" type="password" placeholder="Enter your password">
-      <button id="btn_password">Try</button>
+        <h1>Try the security of your password.</h1>
+        <input id="input_password" type="password" placeholder="Enter your password">
+        <i id="togglePassword" class="fa fa-eye"></i>
+        <button id="btn_password">Try</button>
 
-      <div id="estado"> </div>
+        <div id="estado"> </div>
 
-      <div id="recomendaciones"><p>Recommendations to improve the level of your password:</p>
+        <div id="recomendaciones"><p>Recommendations to improve the level of your password:</p></div>
 
         <div id="criterios"></div>
-
-      </div>
-
-</div>
+        
+    </div>
+    
 <script src="./script.js" defer></script>
 </body>
 </html>

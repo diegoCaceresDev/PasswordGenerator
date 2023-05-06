@@ -1,54 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Explora&family=Roboto:ital@1&display=swap');
 
 *{
-  padding: 0%;
-  margin: 0%;
+	padding: 0%;
+	margin: 0%;
 }
 
 h1 {
-  font-family: Anton;
+  	font-family: Anton;
 }
 
 body {
-  font-family: Roboto;
-  background-color: #dfdfdf;
+	font-family: Roboto;
+	background-color: #dfdfdf;
+}
+
+ul{
+	margin-top: 15px;
 }
 
 #generate {
-    padding: 10px;
-    background-color: #b09ad0;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
+	margin-left: 5px;
+	padding: 10px;
+	background-color: #b09ad0;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
   
-  #generate:hover {
-    background-color: #b8adcd;
-  }
+#generate:hover {
+	background-color: #b8adcd;
+}
   
-  #password {
-    margin-top: 20px;
+#password {
+	margin-top: 20px;
     font-size: 1.2rem;
-  }
+}
   
-  #messageClipboard {
+#messageClipboard {
     margin-top: 10px;
     font-size: 0.8rem;
     color:red;
-  }
+}
   
-  #levelsecurity {
-    margin-top: 20px;
+#levelsecurity {
     padding: 5px;
     font-size: 1rem;
     border-radius: 5px;
     border: none;
     background-color: #f2f2f2;
-  }
+}
   
-  
-  .container {
+.container {
     max-width: 500px;
     height: 5%;
     margin: 2.5% auto ;
@@ -57,22 +60,50 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
+}
 
-  button:active {
+button:active {
     transform: scale(0.95);
-    }
+}
   
-  #btn_password {
+#btn_password {
+	margin-left: 10px;
     padding: 10px;
     background-color: #b09ad0;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-  }
+}
 
-  #recomendaciones,p {
+#btn_password:hover {
+	background-color: #b8adcd;
+}
+
+#recomendaciones,p {
     margin: 4%;
     text-align: center;
-  }
+}
+
+#input_password{
+	border-radius: 15px;
+	height: 23px;
+	padding: 5px;
+}
+
+#estado{
+	margin-top: 15px;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+#togglePassword{
+	margin-left: -30px; 
+	cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+
